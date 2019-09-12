@@ -13,6 +13,7 @@ var SPACE=32;
 var ONE=49;
 var TWO=50;
 var THREE=51;
+var FOUR=52;
 // TILES
 var WALL=0;
 var BRICK=1;

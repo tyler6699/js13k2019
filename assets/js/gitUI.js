@@ -58,13 +58,15 @@ function gitUI() {
       if(level.complete && hero.currentLevel == level.levels.length-1){
         cLevel = 0;
       }
-      fillMixedText(ctx, [{ text: "::: MENU :::" , fillStyle: '#5ab9a8'}], 60, 120  + (no * 25) + offset);
+      fillMixedText(ctx, [{ text: "::: MENU :::" , fillStyle: '#5ab9a8'}], 60, 105  + (no * 25) + offset);
       no++;
-      ctx.fillText("1. Play level " + cLevel,60, 120 + (no * 25) + offset);
+      ctx.fillText("1. Play level " + cLevel,60, 105 + (no * 25) + offset);
       no++;
-      ctx.fillText("2. Retry level " + hero.currentLevel,60, 120 + (no * 25) + offset);
+      ctx.fillText("2. Retry level " + hero.currentLevel,60, 105 + (no * 25) + offset);
       no++;
-      ctx.fillText("3. Level Times",60, 120 + (no * 25) + offset);
+      ctx.fillText("3. Level Times",60, 105 + (no * 25) + offset);
+      no++;
+      ctx.fillText("4. Short of time! (Go Back)",60, 105 + (no * 25) + offset);
     } else {
       ctx.fillText("1. Back",60, 100 + (no * 25) + offset);
       no++;
@@ -172,6 +174,10 @@ function gitUI() {
         // THREE
         } else if(mainGame.keys[THREE]){
           this.showLevel = true;
+        } else if(mainGame.keys[FOUR]){
+          hero.currentLevel = 0;
+          this.done = true;
+          level.reset(hero);
         }
 
         if(mainGame.keys[ONE] || mainGame.keys[TWO] || mainGame.keys[THREE]){
